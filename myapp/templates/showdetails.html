@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% block title %}
+Showdetails
+{% endblock title %}
+
+
+{% block content %}
+
+
+{% for register in reg %}
+<div class="container my-3 shadow-lg p-3 mb-5 bg-body rounded">
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">{{request.user}}</th>
+      <th scope="col">FirstName</th>
+      <th scope="col">LastName</th>
+      <th scope="col">Email</th>
+      <th scope="col">Address</th>
+      <th scope="col">City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{request.user}}</th>
+      <td>{{register.firstname}}</td>
+      <td>{{register.lastname}}</td>
+      <td>{{register.email}}</td>
+      <td>{{register.address}}</td>
+      <td>{{register.city}}</td>
+      <td><a class="btn btn-dark" href="/edit/{{register.id}}" role="button">Edit</a></td>
+      <td><a class="btn btn-dark" href="/delete/{{register.id}}" role="button">Delete</a></td>
+    </tr>
+  </tbody>
+</table>
+
+</div>
+{% endfor %}
+<div class="d-grid gap-2 col-6 mx-auto">
+<a class="btn btn-dark" href="/userlogout/" role="button">logout</a>
+</div>
+
+{% endblock content %}
